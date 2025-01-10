@@ -1,3 +1,3 @@
 # shell-scripting
 
-This is for Demo purpose of application testing
+This is for Demo purpose of application.
