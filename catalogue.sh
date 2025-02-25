@@ -4,8 +4,6 @@ dnf module enable nodejs:20 -y
 dnf install nodejs -y
 
 cp catalogue.servic /etc/systemd/system/catalogue.service
-
-
 useradd roboshop
 rm -f /app
 mkdir /app
