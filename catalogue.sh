@@ -18,5 +18,5 @@ systemctl daemon-reload
 
 dnf install mongodb-mongosh -y
 cp mongo.repo /etc/yum.repos.d/mongo.repo
-mongosh --host MONGODB-SERVER-IPADDRESS </app/db/master-data.js
+mongosh --host mongodb-dev.thinknewtech.online </app/db/master-data.js
 
