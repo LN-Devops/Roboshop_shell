@@ -4,7 +4,9 @@ Description=Shipping Service
 [Service]
 User=roboshop
 Environment=CART_ENDPOINT=cart-dev.thinknewtech.online:8080
-Environment=DB_HOST=mysql-dev.thinknewtech.online
+Environment=DB_HOST=mysql
+
+-dev.thinknewtech.online
 ExecStart=/bin/java -jar /app/shipping.jar
 SyslogIdentifier=shipping
 
