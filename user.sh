@@ -1,3 +1,4 @@
+source ./common.sh
 app_name=user
 NODEJS
 cp $app_name.service /etc/systemd/system/$app_name.service
