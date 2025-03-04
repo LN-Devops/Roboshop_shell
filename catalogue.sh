@@ -5,7 +5,7 @@ NODEJS
 cp mongo.repo /etc/yum.repos.d/mongo.repo
 cp $app_name.service /etc/systemd/system/$app_name.service
 useradd roboshop
-rm -f /app
+rm -rf /app
 mkdir /app
 cd /app
 curl -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip
