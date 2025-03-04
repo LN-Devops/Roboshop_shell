@@ -2,7 +2,7 @@ source ./common.sh
 app_name=cart
 
 cp $app_name.service /etc/systemd/system/$app_name.service
-
+NODEJS
 rm -rf /app
 mkdir /app
 
