@@ -1,4 +1,4 @@
-app_name= catalogue
+app_name=catalogue
 
 NODEJS
 cp mongo.repo /etc/yum.repos.d/mongo.repo
