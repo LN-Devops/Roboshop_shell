@@ -1,22 +1,21 @@
-dnf module disable nodejs -y
-dnf module enable nodejs:20 -y
-dnf install nodejs -y
+source ./common.sh
+app_name=cart
 
-cp cart.service /etc/systemd/system/cart.service
+cp $app_name.service /etc/systemd/system/$app_name.service
 
 rm -rf /app
 mkdir /app
 
 useradd roboshop
 
-curl -L -o /tmp/cart.zip https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
+curl -L -o /tmp/$app_name.zip https://roboshop-artifacts.s3.amazonaws.com/$app_name-v3.zip
  cd /app
- unzip /tmp/cart.zip
+ unzip /tmp/$app_name.zip
 
  cd /app
  npm install
 
  systemctl daemon-reload
 
- systemctl enable cart
- systemctl start cart
+ systemctl enable $app_name
+ systemctl start $app_name
