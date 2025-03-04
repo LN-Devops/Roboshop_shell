@@ -1,4 +1,4 @@
-
+dir_path=$(pwd)
 
 NODEJS(){
   dnf module disable nodejs -y
@@ -13,7 +13,7 @@ NODEJS(){
 
   cd /app
   npm install
-  cp $app_name.service /etc/systemd/system/$app_name.service
+  cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service
   systemctl daemon-reload
   systemctl enable $app_name
   systemctl start $app_name
