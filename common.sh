@@ -1,4 +1,10 @@
 dir_path=$(pwd)
+SYSTEMD_SETUP(){
+  cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service
+  systemctl daemon-reload
+  systemctl enable $app_name
+  systemctl start $app_name
+}
 
 NODEJS(){
   dnf module disable nodejs -y
@@ -13,15 +19,13 @@ NODEJS(){
 
   cd /app
   npm install
-  cp $dir_path/$app_name.service /etc/systemd/system/$app_name.service
-  systemctl daemon-reload
-  systemctl enable $app_name
-  systemctl start $app_name
+  SYSTEMD_SETUP
+
 }
 
 JAVA(){
   dnf install maven -y
-  cp $app_name.service /etc/systemd/system/$app_name.service
+
   useradd roboshop
 
   rm -rf /app
@@ -34,14 +38,11 @@ JAVA(){
   cd /app
   mvn clean package
   mv target/$app_name-1.0.jar $app_name.jar
-  systemctl daemon-reload
-  systemctl enable $app_name
-  systemctl start $app_name
+  SYSTEMD_SETUP
 }
 
 python(){
   dnf install python3 gcc python3-devel -y
-  cp $app_name.service /etc/systemd/system/$app_name.service
   useradd roboshop
   rm -rf /app
   mkdir /app
@@ -50,7 +51,5 @@ python(){
   unzip /tmp/$app_name.zip
   cd /app
   pip3 install -r requirements.txt
-  systemctl daemon-reload
-  systemctl enable $app_name
-  systemctl start $app_name
+  SYSTEMD_SETUP
 }
