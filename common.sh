@@ -72,7 +72,11 @@ NODEJS(){
 JAVA(){
   echo downloading maven for java application
   dnf install maven -y  &>>$log_file
-  echo $?
+  if ($? -eq 0); then
+    echo success
+  else
+    echo failure
+  fi
 
   APP_PREREQ
   echo downloading the dependancies
