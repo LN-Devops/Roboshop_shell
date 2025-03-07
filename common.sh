@@ -101,3 +101,12 @@ python(){
   status_print $?
   SYSTEMD_SETUP
 }
+GO_LANG(){
+  dnf install golang -y
+  tatus_print $?
+  APP_PREREQ
+  go mod init $app_name
+  go get
+  go build
+  SYSTEMD_SETUP
+}
