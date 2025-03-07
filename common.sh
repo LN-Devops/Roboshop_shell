@@ -73,9 +73,9 @@ JAVA(){
   echo downloading maven for java application
   dnf install maven -y  &>>$log_file
   if [ $? -eq 0 ]; then
-    echo success
+    echo -e " \e[32mSUCCESS\e[0m"
   else
-    echo failure
+    echo -e " \e[31mFAILURE\e[0m"
   fi
 
   APP_PREREQ
