@@ -5,7 +5,7 @@ JAVA
 
 dnf install mysql -y
 status_print $?
+for file in schema app-user master-data; do
+  mysql -h mysql-dev.thinknewtech.online -uroot -pRoboShop@1 < /app/db/$file.sql &>>$log_file
+done
 
-mysql -h mysql-dev.thinknewtech.online -uroot -pRoboShop@1 < /app/db/schema.sql
-mysql -h mysql-dev.thinknewtech.online -uroot -pRoboShop@1 < /app/db/app-user.sql
-mysql -h mysql-dev.thinknewtech.online -uroot -pRoboShop@1 < /app/db/master-data.sql
